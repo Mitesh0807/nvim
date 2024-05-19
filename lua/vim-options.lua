@@ -32,3 +32,4 @@ vim.opt.number = true
 
 
 vim.api.nvim_set_keymap('n', '<leader>r', ':lua toggle_relative_number()<CR>', { noremap = true, silent = true })
+
