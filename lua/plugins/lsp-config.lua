@@ -1,5 +1,4 @@
 return {
-  --mason 
   { "williamboman/mason.nvim",
     config = function()
       require("mason").setup()
@@ -9,7 +8,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "angularls","bashls","css", "dockerls","eslint","graphql","jsonls","html","tsserver"},
+        ensure_installed = { "angularls","bashls", "dockerls","eslint","graphql","jsonls","html","tsserver"},
       })
     end,
   },
@@ -17,7 +16,47 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({})
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+          Lua = {
+            format = {
+              enable = true,
+              defaultConfig = {
+                indent_style = "space",
+                indent_size = "2",
+              },
+            },
+          },
+        }
+      })
+      lspconfig.angularls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      lspconfig.bashls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      lspconfig.dockerls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      lspconfig.eslint.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      lspconfig.graphql.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      lspconfig.tsserver.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      vim.keymap.set('n','K',vim.lsp.buf.hover , {})
+      vim.keymap.set('n','<leader>ca',vim.lsp.buf.code_action,{})
     end,
   }
 }
