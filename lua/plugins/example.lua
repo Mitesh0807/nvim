@@ -137,6 +137,7 @@ return {
         "yaml",
         "vimdoc",
         "luadoc",
+        "go"
       },
     },
   },
