@@ -1,15 +1,1 @@
-return {
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    opts = {
-      transparent_background = true,
-    },
-  },
-}
+/home/mitesh/.config/omarchy/current/theme/neovim.lua
